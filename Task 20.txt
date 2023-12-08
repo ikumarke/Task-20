@@ -1,0 +1,115 @@
+1...........................................
+Frame
+
+package guvigu;
+
+import java.awt.Desktop.Action;
+
+import org.junit.AfterClass;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+
+public class Guvipro {
+	WebDriver driver;
+	@BeforeClass
+	public void Browsersetup() {
+		// TODO Auto-generated method stub
+		WebDriverManager.chromedriver().setup();
+		driver=new ChromeDriver();
+		driver.get("https://jqueryui.com/datepicker/");
+		driver.manage().deleteAllCookies();
+		driver.manage().window().maximize();
+
+	}
+	@Test
+	public void Iframe() throws InterruptedException {
+		
+		WebElement findElement = driver.findElement(By.xpath("//iframe[@class='demo-frame']"));
+		driver.switchTo().frame(findElement);
+		WebElement findElement2 = driver.findElement(By.id("datepicker"));
+		findElement2.click();
+		WebElement findElement3 = driver.findElement(By.xpath("//a[@data-date='22']"));
+		findElement3.click();
+		System.out.println(findElement3.getText());
+		
+	}
+		
+		
+	@AfterClass
+	public void browser_close() {
+		// TODO Auto-generated method stub
+        driver.quit();
+	}
+
+	
+
+}
+
+2......................................................................................................
+package guvigu;
+
+import java.awt.Desktop.Action;
+
+import org.junit.AfterClass;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Test;
+
+import io.github.bonigarcia.wdm.WebDriverManager;
+
+
+public class Guvipro {
+	WebDriver driver;
+	@BeforeClass
+	public void Browsersetup() {
+		// TODO Auto-generated method stub
+		WebDriverManager.chromedriver().setup();
+		driver=new ChromeDriver();
+		driver.get("https://www.guvi.in/");
+		driver.manage().deleteAllCookies();
+		driver.manage().window().maximize();
+
+	}
+	@Test
+	public void sign_in_guvi() {
+		
+		
+		WebElement findElement4 = driver.findElement(By.xpath("//a[@class='nav-link btn btn-primary text-white px-4']"));
+		 findElement4.click();
+		 WebElement findElement = driver.findElement(By.id("name"));
+		 findElement.sendKeys("Ajith");
+		 WebElement findElement3 = driver.findElement(By.id("email"));
+		 findElement3.sendKeys("Ajith@gmail.com");
+		 WebElement findElement7 = driver.findElement(By.id("password"));
+		 findElement7.sendKeys("@1234fs");
+		 WebElement findElement8 = driver.findElement(By.id("mobileNumber"));
+		 findElement8.sendKeys("8870457486");
+		 WebElement findElement9 = driver.findElement(By.id("signup-btn"));
+		 findElement9.click();
+		 
+	}
+		
+		
+	@AfterClass
+	public void browser_close() {
+		// TODO Auto-generated method stub
+        driver.quit();
+	}
+
+	
+
+}
